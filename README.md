@@ -13,6 +13,7 @@ The goal is not to introduce a new benchmark, but to **operationalize common dat
 * **scripts/**: lightweight Python utilities for auto-generation, annotation, filtering, merging, and splitting
 * **notebooks/**: exploratory analysis, prompt iteration, and dataset quality inspection
   * `04_coco_vqa_spatial_dataset.ipynb`: end-to-end example demonstrating how to transform COCO images and annotations into a spatial VQA dataset using programmatic spatial facts and LLM-assisted question–answer generation.
+  * See also other notebooks to use Robo2VLM and SPATIAL_DISE datasets
 * **eval/**: sanity checks and simple baseline evaluations
 
 
