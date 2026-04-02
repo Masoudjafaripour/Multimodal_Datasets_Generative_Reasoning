@@ -3,6 +3,7 @@
 test-00000-of-00003.parquet
 test-00001-of-00003.parquet
 test-00002-of-00003.parquet
+SAT_val.parquet
 /examples/extend_existing/2_SPATIAL_DISE/images/synthetic/
 /mm_data_venv/
 # Byte-compiled / optimized / DLL files
