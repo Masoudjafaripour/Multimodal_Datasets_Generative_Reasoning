@@ -7,6 +7,9 @@ SAT_val.parquet
 SAT_test.parquet
 /examples/extend_existing/2_SPATIAL_DISE/images/synthetic/
 /mm_data_venv/
+/mm_data_venv_linux/
+qwen25vl_3dsrbench_lora
+qwen25vl_3dsrbench_grpo
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

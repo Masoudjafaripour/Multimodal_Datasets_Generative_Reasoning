@@ -26,11 +26,11 @@ MODEL_ID        = "Qwen/Qwen2.5-VL-3B-Instruct"
 OUTPUT_DIR      = "./qwen25vl_3dsrbench_lora"
 MAX_SAMPLES     = None       # None = full dataset
 EVAL_SAMPLES    = 200        # samples used for before/after eval
-MAX_SEQ_LEN     = 512
-EPOCHS          = 3
+MAX_SEQ_LEN     = 2048
+EPOCHS          = 2
 BATCH_SIZE      = 4
 GRAD_ACCUM      = 4
-LR              = 2e-4
+LR              = 1e-4
 WARMUP_RATIO    = 0.05
 SAVE_STEPS      = 200
 LOG_STEPS       = 10
@@ -48,7 +48,7 @@ LORA_TARGET     = ["q_proj", "k_proj", "v_proj", "o_proj",
 # ============================================================
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
-    bnb_4bit_compute_dtype=torch.float16,
+    bnb_4bit_compute_dtype=torch.bfloat16,
     bnb_4bit_quant_type="nf4",
     bnb_4bit_use_double_quant=True,
 )
@@ -163,7 +163,7 @@ class QwenSFTCollator:
             text=full_texts,
             images=image_inputs,
             padding=True,
-            truncation=True,
+            truncation=False,
             max_length=MAX_SEQ_LEN,
             return_tensors="pt",
         )
@@ -171,7 +171,7 @@ class QwenSFTCollator:
             text=input_texts,
             images=image_inputs,
             padding=True,
-            truncation=True,
+            truncation=False,
             max_length=MAX_SEQ_LEN,
             return_tensors="pt",
         )
@@ -374,7 +374,7 @@ print("Loading model...")
 processor = AutoProcessor.from_pretrained(MODEL_ID)
 model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
     MODEL_ID,
-    torch_dtype=torch.float16,
+    torch_dtype=torch.bfloat16,
     device_map="auto",
     quantization_config=bnb_config,
 )
@@ -408,9 +408,9 @@ model.gradient_checkpointing_enable()
 # ============================================================
 collator     = QwenSFTCollator(processor)
 train_loader = DataLoader(SRBenchDataset(train_data), batch_size=BATCH_SIZE,
-                          shuffle=True,  collate_fn=collator, num_workers=2)
+                          shuffle=True,  collate_fn=collator, num_workers=0)
 val_loader   = DataLoader(SRBenchDataset(val_data),   batch_size=BATCH_SIZE,
-                          shuffle=False, collate_fn=collator, num_workers=2)
+                          shuffle=False, collate_fn=collator, num_workers=0)
 
 # ============================================================
 # Optimizer + scheduler
@@ -441,7 +441,7 @@ for epoch in range(EPOCHS):
         running_loss += loss.item()
 
         if (step + 1) % GRAD_ACCUM == 0:
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 0.3)
             optimizer.step()
             scheduler.step()
             optimizer.zero_grad()
