@@ -14,6 +14,17 @@ labeled bounding boxes for downstream question/answer generation.
    - `segmented_bbox.png` — bounding boxes + labels drawn on the image
    - `segments.json` — `[{label, score, bbox_xyxy}, ...]`, input for VQA generation
 
+## Outputs
+
+| Original | Segmented (overlay) | Bounding boxes | Object keypoints |
+|:---:|:---:|:---:|:---:|
+| ![original](robot_scene.png) | ![segmented](segmented_overlay.png) | ![bbox](segmented_bbox.png) | ![keypoints](keypoints_objects.png) |
+
+`keypoints_objects.png` comes from `keypoints.py`, which also produces
+`keypoints_corners.png` (generic OpenCV corner keypoints) and
+`keypoints_robot_arm.png` (robot-arm joints approximated via mask
+skeletonization — noisy, needs mask smoothing to be reliable).
+
 ## Run
 
 ```bash
