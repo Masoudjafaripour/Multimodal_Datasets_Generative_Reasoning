@@ -49,7 +49,7 @@ The goal is not to introduce a new benchmark, but to **operationalize common dat
 | After SFT | 78.0% |
 | After GRPO | 90.0% |
 
-![GRPO vs SFT](qwen25vl_3dsrbench_grpo/performance_comparison.png)
+![GRPO vs SFT](examples/extend_existing/4_3DSRBech/performance_comparison.png)
 
 ## Scope
 
