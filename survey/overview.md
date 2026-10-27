@@ -1,6 +1,6 @@
-# Understanding Spatial Reasoning in Multimodal Large Language Models
+# Towards a Data-Centric Understanding of Spatial Reasoning in Multimodal Large Language Models
 
-This repository accompanies our survey **“Understanding Spatial Reasoning in Multimodal Large Language Models through Data and Evaluation” (submitted to IJCAI 2026)**. The survey provides a **data-centric view** of how spatial reasoning capabilities in Vision-Language Models (VLMs) and Multimodal Large Language Models (MLLMs) are learned, evaluated, and limited by dataset design.
+This repository accompanies our survey **“Towards a Data-Centric Understanding of Spatial Reasoning in Multimodal Large Language Models”** ([arXiv:2610.19108](https://arxiv.org/abs/2610.19108)) by Mahdieh Mallahnezhad, Masoud Jafaripour, Mohamadali Tofigh, Sheila Schoepp, and Osmar R. Zaiane (University of Alberta, Amii). The survey provides a **data-centric view** of how spatial reasoning capabilities in Vision-Language Models (VLMs) and Multimodal Large Language Models (MLLMs) are learned, evaluated, and limited by dataset design.
 
 ## What this survey is about
 
@@ -39,4 +39,10 @@ Researchers and practitioners working on:
 * Robotics and embodied AI
 * Dataset design, annotation pipelines, and evaluation
 
+## Files in this folder
 
+* [tasks_taxonomy.md](tasks_taxonomy.md): the full taxonomy (Figure 1), key definitions, task patterns, viewpoints and frames of reference (§2–3)
+* [datasets.md](datasets.md): the 28 surveyed post-training datasets (Table 1), construction strategies, annotation approaches, modalities and source environments (§4)
+* [benchmarks.md](benchmarks.md): evaluation practices (Table 2), scoring by answer type, generalization testing and referenced benchmarks (§5)
+* [gaps_directions.md](gaps_directions.md): cross-dataset observations, evaluation open problems and future directions (§6)
+* [papers.md](papers.md): the full reference list, grouped by role
