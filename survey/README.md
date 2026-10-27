@@ -41,7 +41,13 @@ MLLMs describe scenes well but often fail at spatial questions: relative positio
 | Task patterns (perceptual, relational, metric, temporal, occlusion-aware, planning, perspective transformation) | Annotation (template, LLM, procedural/3D, model-generated, human) | Metrics by answer type (accuracy, tolerance, LLM-as-judge, geometric/task success, human baselines) |
 | Viewpoints (single, multi) and frames of reference (ego, object, world, top-down) | Modalities and source environments | Generalization testing and open problems |
 
-Detailed notes for each branch are in [`survey/`](): [taxonomy](tasks_taxonomy.md) · [dataset building](datasets.md) · [evaluation](benchmarks.md) · [insights & future directions](gaps_directions.md) · [references](papers.md).
+Most surveyed datasets are built with the same pipeline:
+
+<p align="center">
+  <img src="datacentric.png" alt="Common pipeline for building spatial reasoning datasets (Fig. 2 of the survey)" width="100%">
+</p>
+
+Detailed notes for each branch: [taxonomy](tasks_taxonomy.md) · [dataset building](datasets.md) · [evaluation](benchmarks.md) · [insights & future directions](gaps_directions.md) · [references](papers.md).
 
 ## Spatial Reasoning Post-Training Datasets
 
