@@ -46,3 +46,4 @@ Researchers and practitioners working on:
 * [benchmarks.md](benchmarks.md): evaluation practices (Table 2), scoring by answer type, generalization testing and referenced benchmarks (§5)
 * [gaps_directions.md](gaps_directions.md): cross-dataset observations, evaluation open problems and future directions (§6)
 * [papers.md](papers.md): the full reference list, grouped by role
+* [README.md](README.md): the paper list: surveyed datasets with paper, code, and data links, benchmarks, and related surveys
